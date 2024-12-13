@@ -10,6 +10,7 @@ public class PipeSpawner : MonoBehaviour {
     void Start() {
        spawnPipe();
     }
+
     void Update() {
         if (timer < spawnRate) {
             timer += Time.deltaTime;
@@ -18,6 +19,7 @@ public class PipeSpawner : MonoBehaviour {
             timer = 0;
         }
     }
+
     void spawnPipe() {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
