@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LogicScript : MonoBehaviour {
 
-    public bool playing;
+    public static bool playing;
     public GameObject gameOverScreen;
 
     // Score

@@ -13,8 +13,11 @@ public class BirdScript : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive) {
+        if (logic.isPlaying()) {
             myRigidbody.constraints = RigidbodyConstraints2D.None;
+            myRigidbody.WakeUp();
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive) {
             myRigidbody.linearVelocity = Vector2.up * this.flapStrength;
         }
     }
