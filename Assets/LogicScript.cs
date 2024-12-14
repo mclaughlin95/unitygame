@@ -72,4 +72,8 @@ public class LogicScript : MonoBehaviour {
     public bool isPlaying() {
         return playing;
     }
+
+    public void mainMenu() {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
