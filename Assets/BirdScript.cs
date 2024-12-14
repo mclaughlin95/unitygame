@@ -7,6 +7,7 @@ public class BirdScript : MonoBehaviour {
     public LogicScript logic;
     public bool birdIsAlive = true;
 
+    // Bird Audio Clips
     public AudioSource audioSource;
     public AudioClip jumpSound;
     public AudioClip smackSound;

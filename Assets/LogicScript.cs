@@ -16,6 +16,31 @@ public class LogicScript : MonoBehaviour {
     public float timer;
     public Text timerText;
 
+    // Game Music
+    public AudioSource audioSource;
+    public AudioClip music;
+
+    void Start() {
+        audioSource.clip = music;
+        audioSource.loop = true;
+        audioSource.Play();
+        timer = timer = (float)3.99;
+        playing = false;
+    }
+
+    void Update() {
+        playing = (timer <= 0);
+        countDownTimer.SetActive(!playing);
+        if (!playing && timer > 1) {
+            timerText.text = ((int)timer).ToString();
+        } else if (timer <= 1 && timer > 0) {
+            timerText.text = "GO";
+        }
+        if (timer > 0) {
+            timer -= Time.deltaTime;
+        }
+    }
+
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd) {
         score += scoreToAdd;
@@ -46,27 +71,5 @@ public class LogicScript : MonoBehaviour {
 
     public bool isPlaying() {
         return playing;
-    }
-
-    void Start() {
-        timer = timer = (float)3.99;
-        playing = false;
-    }
-
-    void Update() {
-        playing = (timer <= 0);
-        countDownTimer.SetActive(!playing);   
-        if (!playing && timer > 1)
-        {
-            timerText.text = ((int)timer).ToString();
-        } 
-        else if (timer <= 1 && timer > 0)
-        {
-            timerText.text = "GO";
-        }
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-        }
     }
 }
